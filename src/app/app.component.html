@@ -63,7 +63,7 @@
               <a href="tg://resolve?domain=TEST">
                 <i class="fa-brands fa-telegram"></i>
               </a>
-              <a href="mailto:niva-clinic@gmail.com">
+              <a href="mailto:nivaclinic@gmail.com">
                 <i class="fa-solid fa-at"></i>
               </a>
             </div>
@@ -96,7 +96,11 @@
       </div>
       <div class="row text-center gy-3 row-cols-xl-4">
         <div class="col" *ngFor="let service of serviceCopy" #service>
-          <div class="service-container" (mouseover)="activateExtra(service)">
+          <div
+            class="service-container"
+            (mouseover)="activateExtra(service)"
+            (touchstart)="activateExtra(service)"
+          >
             <div class="service-container--img-wrapper">
               <img
                 [src]="service.image"
@@ -190,14 +194,18 @@
             Россия, Новгородская область, Великий Новгород, пер. Юннатов, 5
           </address>
         </div>
-        <div class="col d-flex align-items-center flex-column">
+        <div class="col d-flex align-items-center flex-column gap-2">
           <h4>Номера телефонов</h4>
-          <p>+7 (911) 63-80-363</p>
-          <p>+7 (8162) 60-69-38</p>
+          <a href="tel:89116380363" class="btn btn-success btn-bordered"
+            >+7 (911) 63-80-363</a
+          >
+          <a href="tel:89116380363" class="btn btn-success btn-bordered">
+            +7 (8162) 60-69-38</a
+          >
         </div>
         <div class="col d-flex align-items-center flex-column">
           <h4>Дополнительные способы связи</h4>
-          <a href="maito:niva-clinic@gmail.com">niva-clinic@gmail.com</a>
+          <a href="maito:niva-clinic@gmail.com">nivaclinic@gmail.com</a>
         </div>
       </div>
     </div>
@@ -274,9 +282,9 @@
         </ul>
       </div> -->
       <div class="col">
-        <p>Copyright 2022 &copy; Natenadze</p>
+        <p>Copyright 2022 &copy; Клиника Нива</p>
         <p>
-          Web Development: Giorgi Natenadze<br />
+          Веб-разработка: Натенадзе Георгий<br />
           <a href="mailto:natenadze1102@gmail.com">natenadze1102@gmail.com</a>
         </p>
       </div>
