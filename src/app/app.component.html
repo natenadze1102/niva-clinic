@@ -41,7 +41,7 @@
         <div class="row row-cols-1 row-cols-xl-2 align-items-center">
           <div class="col" style="order: 2">
             <p class="heading-text">
-              Квалифициранные врачи г. В.Новгород и Санкт-Петербург
+              Квалифицированные врачи г. В.Новгород и Санкт-Петербург
               предоставляют для вас медицинские услуги, приемлемые цены, полную
               анонимность, высокое качество обслуживания.<br />
               Лечение созависимых - бесплатно. Консультация нарколога -
@@ -96,28 +96,43 @@
       </div>
       <div class="row text-center gy-3 row-cols-xl-4">
         <div class="col" *ngFor="let service of serviceCopy" #service>
-          <div class="service-container" (pan)="activateExtra(service)">
-            <div class="service-container--img-wrapper">
-              <img
-                [src]="service.image"
-                [alt]="service.alt"
-                [ngClass]="{
-                  'service-container--img': true,
-                  'filter-low-brightnest': extraActivatedNumber == service.id
-                }"
-                width="281"
-                height="322"
-              />
+          <div class="service-container">
+            <div
+              class="test"
+              (mouseover)="activateExtra(service)"
+              (mouseleave)="deactivateExtra()"
+              style="width: 100%; height: 100%; position: relative; z-index: 2"
+            >
+              <div class="service-container--img-wrapper">
+                <img
+                  [src]="service.image"
+                  [alt]="service.alt"
+                  [ngClass]="{
+                    'service-container--img': true,
+                    'filter-low-brightnest': extraActivatedNumber == service.id
+                  }"
+                  width="281"
+                  height="322"
+                  style="position: relative; z-index: -1"
+                />
 
-              <div class="extra" *ngIf="extraActivatedNumber == service.id">
-                <h3>{{ service.title }}</h3>
-                <p>
-                  {{ service.text }}
+                <div
+                  class="extra"
+                  *ngIf="extraActivatedNumber == service.id"
+                  style="z-index: -1"
+                >
+                  <h3>{{ service.title }}</h3>
+                  <p>
+                    {{ service.text }}
+                  </p>
+                </div>
+                <p
+                  *ngIf="extraActivatedNumber != service.id"
+                  style="position: relative; z-index: -1"
+                >
+                  {{ service.title }}
                 </p>
               </div>
-              <p *ngIf="extraActivatedNumber != service.id">
-                {{ service.title }}
-              </p>
             </div>
           </div>
         </div>

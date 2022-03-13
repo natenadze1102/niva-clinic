@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
       title: 'УЗИ',
       image: './assets/images/ultra.jpg',
       alt: 'img-2',
-      text: `Проводим обследование сердца, щитовидной железы, брюшной полости, почек. Консультируем по гинекологии и урологии. Консультируем по гинекологии и урологии`,
+      text: `Проводим обследование сердца, щитовидной железы, брюшной полости, почек. Консультируем по гинекологии и урологии.`,
     },
     {
       id: 3,
@@ -104,13 +104,12 @@ export class AppComponent implements OnInit {
   // }
 
   activateExtra(service: any) {
-    this.extraActivatedNumber = service.id;
+    this.extraActivatedNumber =
+      this.extraActivatedNumber == service.id ? -1 : service.id;
   }
 
   deactivateExtra() {
-    setTimeout(() => {
-      this.extraActivatedNumber = -1;
-    }, 200);
+    this.extraActivatedNumber = -1;
   }
 
   expandServices() {
