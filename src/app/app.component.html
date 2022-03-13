@@ -96,12 +96,7 @@
       </div>
       <div class="row text-center gy-3 row-cols-xl-4">
         <div class="col" *ngFor="let service of serviceCopy" #service>
-          <div
-            class="service-container"
-            (mouseover)="activateExtra(service)"
-            (touchstart)="activateExtra(service)"
-            (click)="deactivateExtra()"
-          >
+          <div class="service-container" (pan)="activateExtra(service)">
             <div class="service-container--img-wrapper">
               <img
                 [src]="service.image"

@@ -108,7 +108,9 @@ export class AppComponent implements OnInit {
   }
 
   deactivateExtra() {
-    this.extraActivatedNumber = null;
+    setTimeout(() => {
+      this.extraActivatedNumber = -1;
+    }, 200);
   }
 
   expandServices() {
