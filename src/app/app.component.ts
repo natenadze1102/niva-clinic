@@ -11,7 +11,7 @@ import {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit, OnChanges, AfterViewInit {
+export class AppComponent implements OnInit {
   title = 'project';
   // need to lift enywhere  to another component!
   services: any = [
@@ -88,23 +88,27 @@ export class AppComponent implements OnInit, OnChanges, AfterViewInit {
   ];
   serviceCopy = this.services.slice(0, 4);
 
-  extraActivatedNumber!: number;
+  extraActivatedNumber!: number | null;
   servicesAreExpended: boolean = false;
 
   ngOnInit() {
     // console.log(document.documentElement.scrollHeight);
   }
 
-  ngAfterViewInit(): void {
-    console.log('1');
-  }
+  // ngAfterViewInit(): void {
+  //   console.log('1');
+  // }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(document.documentElement.scrollHeight);
-  }
+  // ngOnChanges(changes: SimpleChanges): void {
+  //   console.log(document.documentElement.scrollHeight);
+  // }
 
   activateExtra(service: any) {
     this.extraActivatedNumber = service.id;
+  }
+
+  deactivateExtra() {
+    this.extraActivatedNumber = null;
   }
 
   expandServices() {
